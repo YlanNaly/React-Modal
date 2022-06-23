@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './tr.css';
+import client from './Requete'; 
 
 function Tr(props){
 
@@ -15,9 +16,11 @@ function Tr(props){
     const [CompanyValue,setCompany] = useState(company);
     const [WebsiteValue,setWebsite] = useState(website);
     const [PhoneValue,setPhone] = useState(phone);
+    const [posts, setPosts] = useState([]);
 
     const handlerSubmit =(e)=>{
         e.preventDefault();
+        addPosts(username, name,company,website,phone,email,address);
     }
     const G = (e) =>{
         setName(e.target.value)
@@ -41,6 +44,28 @@ function Tr(props){
         setAddress(e.target.value)
     }  
 
+    const addPosts = (username, name,company,website,phone,email,address) => {
+        client
+           .put('https://jsonplaceholder.typicode.com/users', {
+             username : username,
+             name : name ,
+             company : company,
+             website : website,
+             phone : phone,
+             email : email,
+             address : address
+           })
+           .then((response) => {
+              setPosts([response.data, ...posts]);
+           });
+        setName('');
+        setCompany('');
+        setPhone('');
+        setUserName('');
+        setWebsite('');
+
+     };
+
     return(
         <>
          <div className="modal-wrapper"
@@ -55,6 +80,7 @@ function Tr(props){
         </div> 
         <div className="modal-content">
             <div className="modal-body">
+            <form onSubmit={handlerSubmit}>
 
                 <input type="text" onChange={G}  placeholder={name}/>
                 <input type="text" onChange={A}  placeholder={username}/>
@@ -64,10 +90,10 @@ function Tr(props){
                 <input type="text" onChange={E}  placeholder={phone}/>
                 <input type="text" onChange={D} placeholder={website}/>
 
-
+                </form>
             </div>
             <div className="modal-footer">
-                <button className="btn-cancel" onClick={handlerSubmit}>Update</button>
+                <button className="btn-cancel">Update</button>
             </div>
         </div>
       </div>
