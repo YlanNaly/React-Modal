@@ -16,11 +16,9 @@ function Tr(props){
     const [CompanyValue,setCompany] = useState(company);
     const [WebsiteValue,setWebsite] = useState(website);
     const [PhoneValue,setPhone] = useState(phone);
-    const [posts, setPosts] = useState([]);
 
     const handlerSubmit =(e)=>{
         e.preventDefault();
-        addPosts(username, name,company,website,phone,email,address);
     }
     const G = (e) =>{
         setName(e.target.value)
@@ -44,27 +42,44 @@ function Tr(props){
         setAddress(e.target.value)
     }  
 
-    const addPosts = (username, name,company,website,phone,email,address) => {
-        client
-           .put('https://jsonplaceholder.typicode.com/users', {
-             username : username,
-             name : name ,
-             company : company,
-             website : website,
-             phone : phone,
-             email : email,
-             address : address
-           })
-           .then((response) => {
-              setPosts([response.data, ...posts]);
-           });
-        setName('');
-        setCompany('');
-        setPhone('');
-        setUserName('');
-        setWebsite('');
+    try {
+        const data  = client({
+            method: 'put',
+            url: 'https://jsonplaceholder.typicode.com/users',
+            data: {
+                name: nameValue ,
+                username: UsernameValue ,
+                email: EmailValue,
+                address: {
+                  street: "",
+                  suite: "",
+                  city: AddressValue,
+                  zipcode: "",
+                  geo: {
+                    lat: "",
+                    lng: ""
+                  }
+                },
+                phone: PhoneValue ,
+                website: WebsiteValue,
+                company: {
+                  name: CompanyValue,
+                  catchPhrase: "",
+                  bs: ""
+                }
+                
 
-     };
+            }
+        });
+    
+        console.log("data");
+    } catch (err) {
+        if (err.response.status === 404) {
+            console.log('Resource could not be found!');
+        } else {
+            console.log(err.message);
+        }
+    }
 
     return(
         <>
@@ -75,7 +90,6 @@ function Tr(props){
       }}
       >
         <div className="modal-header">
-            <p> Updating </p>
             <span className="close-modal-btn"onClick={closeModalHandler} >X</span>
         </div> 
         <div className="modal-content">

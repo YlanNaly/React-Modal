@@ -62,6 +62,8 @@ export default function Modal({ show , closeModalHandler}){
      const Take6 =(e)=>{
         setAddress(e.target.value);
      }
+
+     
     return(
         <>
       <div className="modal-wrapper"
