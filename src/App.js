@@ -7,6 +7,8 @@ import { Footer } from "./components/Footer";
 import { Card } from "./components/Card";
 import { faker } from "@faker-js/faker";
 import { useState } from "react";
+import Modal from "./components/List/modal";
+
 
 function App() {
   const employees = new Array(15).fill(null).map((_) => ({
@@ -17,6 +19,9 @@ function App() {
     startDate: new Date().toISOString().split("T")[0],
     salary: faker.random.numeric(6),
   }));
+
+  const [show,setShow] = useState(false);
+  const closeModalHandler = ()=> setShow(false); 
 
   const [sidebarClass, setSidebarClass] = useState("sb-nav-fixed");
 
@@ -39,6 +44,15 @@ function App() {
           <main>
             <div className="container-fluid px-4">
               <h1 className="mt-4">Tables</h1>
+              <div>
+                {
+                  show ?  <div onClick={closeModalHandler} className="modal-drop"></div> : null
+                }
+              <Modal show={show} closeModalHandler={closeModalHandler}/>
+                  <button className="btn-OpenModal" onClick={()=>setShow(true)}>
+                   Add User
+                  </button>
+              </div>
               <Breadcrumb />
               <Card>
                 DataTables is a third party plugin that is used to generate the

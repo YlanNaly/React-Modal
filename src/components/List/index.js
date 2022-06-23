@@ -1,7 +1,24 @@
 import "./style.css";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Tr from "./tr";
+import { Table } from 'react-bootstrap';
 
 export function EmployeeList(props) {
-  const { items } = props;
+
+  const [result,setResult] = useState([]); 
+  useEffect(()=>{
+    const promise = axios.get('https://jsonplaceholder.typicode.com/users');
+    
+    promise.then((response)=>{
+         setResult(response.data)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  })
+ 
+
   return (
     <div className="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
       <div className="dataTable-top">
@@ -28,40 +45,37 @@ export function EmployeeList(props) {
         </div>
       </div>
       <div className="dataTable-container">
-        <table className="table-bordered">
+        <Table id="datatablesSimple " striped bordered hover responsive="xl">
           <thead>
-            <tr>
+          <tr>
               <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Company</th>
+              <th>address</th>
+              <th>Phone</th>
+              <th>Website</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Company</th>
+              <th>address</th>
+              <th>Phone</th>
+              <th>Website</th>
             </tr>
           </tfoot>
           <tbody>
-            {(items || []).map((item) => (
-              <tr key={item.name}>
-                <td>{item.name}</td>
-                <td>{item.position}</td>
-                <td>{item.office}</td>
-                <td>{item.age}</td>
-                <td>{item.startDate}</td>
-                <td>{item.salary}</td>
-              </tr>
-            ))}
+            {
+              result.map((e)=>(
+                 <Tr name={e.name} username={e.username} email={e.email} company={e.company.name} address={e.address.city} phone={e.phone} website={e.website} />
+              ))
+            }
           </tbody>
-        </table>
+        </Table>
       </div>
       <div className="dataTable-bottom">
         <div className="dataTable-info">Showing 1 to 10 of 57 entries</div>
