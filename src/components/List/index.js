@@ -16,7 +16,8 @@ export function EmployeeList(props) {
     .catch((error)=>{
       console.log(error)
     })
-  })
+  },[]
+  )
  
 
   return (

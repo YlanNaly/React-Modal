@@ -76,7 +76,7 @@ export default function Modal({ show , closeModalHandler}){
         </div> 
         <div className="modal-content">
             <div className="modal-body">
-
+            <form onSubmit={handleSubmit}>
                 <input type="text" onChange={Take} placeholder="Name"/>
                 <input type="text" onChange={Take1} placeholder="Username"/>
                 <input type="text" onChange={Take2} placeholder="Email"/>
@@ -84,11 +84,12 @@ export default function Modal({ show , closeModalHandler}){
                 <input type="text" onChange={Take4} placeholder="Address"/>
                 <input type="text" onChange={Take5} placeholder="Phone"/>
                 <input type="text" onChange={Take6} placeholder="Website"/>
-
+                <button className="btn-cancel" >Add User</button>
+                </form>
 
             </div>
             <div className="modal-footer">
-                <button className="btn-cancel" onClick={handleSubmit}>Add User</button>
+               
             </div>
         </div>
       </div>
