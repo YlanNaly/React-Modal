@@ -43,7 +43,7 @@ function Tr(props){
     }  
 
     try {
-        const data  = client({
+        const {data}  = client({
             method: 'put',
             url: 'https://jsonplaceholder.typicode.com/users',
             data: {

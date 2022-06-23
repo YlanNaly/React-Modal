@@ -83,37 +83,37 @@ export function EmployeeList(props) {
         <nav className="dataTable-pagination">
           <ul className="dataTable-pagination-list">
             <li className="active">
-              <a href="#" data-page="1">
+              <a href="" rel="noreferrer" data-page="1">
                 1
               </a>
             </li>
             <li className="">
-              <a href="#" data-page="2">
+              <a href="" rel="noreferrer" data-page="2">
                 2
               </a>
             </li>
             <li className="">
-              <a href="#" data-page="3">
+              <a href="" rel="noreferrer" data-page="3">
                 3
               </a>
             </li>
             <li className="">
-              <a href="#" data-page="4">
+              <a href="" rel="noreferrer" data-page="4">
                 4
               </a>
             </li>
             <li className="">
-              <a href="#" data-page="5">
+              <a href="" data-page="5">
                 5
               </a>
             </li>
             <li className="">
-              <a href="#" data-page="6">
+              <a href="" rel="noreferrer" data-page="6">
                 6
               </a>
             </li>
             <li className="pager">
-              <a href="#" data-page="2">
+              <a href="" data-page="2">
                 ›
               </a>
             </li>
