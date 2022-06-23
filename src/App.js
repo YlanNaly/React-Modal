@@ -44,17 +44,10 @@ function App() {
           <main>
             <div className="container-fluid px-4">
               <h1 className="mt-4">Tables</h1>
-              <div>
-                {
-                  show ?  <div onClick={closeModalHandler} className="modal-drop"></div> : null
-                }
-              <Modal show={show} closeModalHandler={closeModalHandler}/>
-                  <button className="btn-OpenModal" onClick={()=>setShow(true)}>
-                   Add User
-                  </button>
-              </div>
               <Breadcrumb />
+              
               <Card>
+                
                 DataTables is a third party plugin that is used to generate the
                 demo table below. For more information about DataTables, please
                 visit the
@@ -64,7 +57,17 @@ function App() {
                 .
               </Card>
               <Card title="DataTable Example">
+                
                 <EmployeeList items={employees} />
+                <div>
+                {
+                  show ?  <div onClick={closeModalHandler} className="modal-drop"></div> : null
+                }
+              <Modal show={show} closeModalHandler={closeModalHandler}/>
+                  <button className="btn-OpenModal" onClick={()=>setShow(true)}>
+                   Add User
+                  </button>
+              </div>
               </Card>
             </div>
           </main>

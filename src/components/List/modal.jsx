@@ -73,7 +73,7 @@ export default function Modal({ show , closeModalHandler}){
       }}
       >
         <div className="modal-header">
-            <p> ADD ME </p>
+            <b className="add"> ADD ME </b>
             <span className="close-modal-btn"onClick={closeModalHandler} >X</span>
         </div> 
         <div className="modal-content">

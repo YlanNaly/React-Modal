@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +6,7 @@
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 .modal-wrapper{
     background: #fff;
@@ -36,24 +37,22 @@ body{
 .modal-body{
     margin-bottom: 1rem;
 }
-.modal-body h4{
-    font-size: 1.8rem;
-    color: coral;
-}
 .modal-body p{
     font-size: 1rem;
     background: #eee;
     color: #333;
     padding: 1rem;
     margin: 1rem 0 2rem 0;
-    
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 .modal-footer button{
     display: block;
     font-size: 1rem;
     margin-left: auto;
     padding: 0.5rem 1.8rem;
-    background: #dd501d;
+    background: #1db7dd;
     color: #fff;
     border: none;
     outline: none;
@@ -61,12 +60,32 @@ body{
 }
 .btn-OpenModal{
     background: #2c2c2c;
+    font-family: 'Quicksand', sans-serif;
     color:  #eee;
-    margin: 2rem;
+    margin: .2rem;
     padding: 0.5rem 1.8rem;
-    border: none;
     outline: none;
     cursor: pointer;
+    border: none;
+    width: 100%;
+}
+.btn-cancel{
+    background-color: rgba(113, 174, 214, 0.712);
+    color: rgb(17, 16, 16);
+    display: flex;
+    margin-left: 70%;
+    font-family: 'Quicksand', sans-serif;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    text-align: center;
+    border-radius: 12px 0 12px 0;
+    font-size: large;
+    box-shadow: 12px 0 12px 0;
+    border: none;
+}
+.close-modal-btn:hover{
+    color: rgb(131, 35, 35);
 }
 .modal-wrapper{
     background: #fff;

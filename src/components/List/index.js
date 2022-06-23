@@ -41,7 +41,7 @@ export function EmployeeList(props) {
           <input
             className="dataTable-input"
             placeholder="Search..."
-            type="text"
+            type="search"
           />
         </div>
       </div>
