@@ -72,8 +72,8 @@ export default function Modal({ show , closeModalHandler}){
         opacity: show ? '1' : '0'
       }}
       >
-        <div className="modal-header">
-            <b className="add"> ADD ME </b>
+        <div className="modal-header" onClick={closeModalHandler}>
+            <b className="add" > ADD ME </b>
             <span className="close-modal-btn"onClick={closeModalHandler} >X</span>
         </div> 
         <div className="modal-content">

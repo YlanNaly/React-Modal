@@ -19,6 +19,10 @@ body{
     left: 20%;
     z-index: 100;
 }
+.modal-header:hover{
+    background-color: rgb(224, 24, 24);
+    cursor: pointer;
+}
 .modal-header{
     background: #2c2c2c;
     color: #e9e9e9;
